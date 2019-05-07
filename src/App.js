@@ -7,25 +7,33 @@ import Gallery from './components/Gallery';
 
 
 class App extends Component {
-
-	state = {
-		searchTerm: '',
-		results: [
-			'tree',
-			'animal',
-			'food'
-		]
-	};
+  state = {
+    searchTerm: "",
+    results: ["tree", "animal", "food"]
+  };
 
 
+  handleNewSearch = query => {
+		console.log(this.state.searchTerm);
+		this.setState(prevState => {
+      return {
+        searchTerm: query
+      };
+    });
+  };
 
 
+
+	
   render() {
     return (
       <div className="container">
-				<Header />
-				
-				<Gallery 
+        
+				<Header 
+					newSearch={this.handleNewSearch} 
+				/>
+
+        <Gallery
 					items={this.state.results}
 				/>
 

@@ -6,13 +6,18 @@ import Nav from './Nav';
 
 
 
-const Header = () => {
+const Header = ({ newSearch }) => {
 
 	return (
 		<div>
-			<h2>React Gallery App</h2>
-			<Search />
+			<h1>React Gallery App</h1>
+		
+			<Search 
+				newSearch={newSearch} 
+			/>
+			
 			<Nav />
+		
 		</div>
 	)
 };
