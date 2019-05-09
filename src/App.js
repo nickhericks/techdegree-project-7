@@ -16,8 +16,8 @@ import Gallery from './components/Gallery';
 class App extends Component {
   state = {
     searchTerm: "",
-    // results: ["tree", "animal", "food"]
-    results: []
+		results: [],
+		loading: true
   };
 
 
@@ -29,7 +29,7 @@ class App extends Component {
       .then(response => response.json())
       // .then(responseData => console.log(responseData.photos.photo))
       .then(responseData => {
-        this.setState({ results: responseData.photos.photo });
+        this.setState({ results: responseData.photos.photo, loading: false });
       })
       .catch(error => console.log("Error fetching or parsing data", error));
 	}
@@ -66,10 +66,15 @@ class App extends Component {
 					<Header 
 						newSearch={this.performSearch} 
 					/>
-					<Gallery
-						pictures={this.state.results}
-						// query={this.state.searchTerm}
-					/>
+
+					{
+						(this.state.loading)
+						? <p>Loading...</p>
+						: <Gallery
+								pictures={this.state.results}
+								// query={this.state.searchTerm}
+							/>
+					}
 
 				</div>
 			</BrowserRouter>
