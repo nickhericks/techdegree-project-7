@@ -5,23 +5,21 @@ import React, { Component } from "react";
 class Search extends Component {
 
 	state= {
-		value: ''
+		searchText: ''
 	};
 
-	handleValueChange = (e) => {
-		this.setState({value: e.target.value})
+	onSearchChange = (e) => {
+		this.setState({ searchText: e.target.value });
 	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.newSearch(this.state.value);
-		this.setState({ value: ''})
+		let query = this.query.value;
+		this.props.newSearch(query);
+		e.currentTarget.reset();
 	};
 
 	render() {
-		
-		console.log(this.state.value);
-
 		return (
 			<form className="search-form" onSubmit={this.handleSubmit}>
 				<input 
@@ -29,7 +27,8 @@ class Search extends Component {
 					name="Search" 
 					placeholder="Search" 
 					value={this.state.value} 
-					onChange={this.handleValueChange} 
+					onChange={this.onSearchChange} 
+					ref={ (input) => this.query=input }
 					required 
 				/>
 				<button type="submit" className="search-button">
