@@ -1,16 +1,14 @@
 import React from "react";
 
 
-const Item = ({ url }) => {
+const Item = ({ farm, server, id, secret, title }) => {
 	
 	return (
 		
 		<li>
-			<img src={url} alt="" />
-
-			{/* remove this after API is added in */}
-			{url}
-
+			<img 
+				src={`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`}
+				alt={title} />
 		</li>
 	)
 };
