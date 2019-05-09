@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import apiKey from './config.js';
 
 import Header from './components/Header';
 import Gallery from './components/Gallery';
@@ -11,6 +12,7 @@ class App extends Component {
     searchTerm: "",
     results: ["tree", "animal", "food"]
   };
+
 
 
   handleNewSearch = query => {
@@ -32,7 +34,6 @@ class App extends Component {
 				<Header 
 					newSearch={this.handleNewSearch} 
 				/>
-
         <Gallery
 					items={this.state.results}
 				/>
