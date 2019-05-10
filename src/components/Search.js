@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
 
 
 class Search extends Component {
@@ -14,10 +14,10 @@ class Search extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		let query = this.query.value;
-		this.props.newSearch(query);
+		let searchQuery = this.search.value;
+		this.props.newSearch(searchQuery);
 		e.currentTarget.reset();
-		// let path = `/search/${query}`;
+		// let path = `search/${searchQuery}`;
 		// this.props.history.push(path);
 	};
 
@@ -30,7 +30,7 @@ class Search extends Component {
 					placeholder="Search" 
 					value={this.state.value} 
 					onChange={this.onSearchChange} 
-					ref={ (input) => this.query = input }
+					ref={ (input) => this.search = input }
 					required 
 				/>
 				<button type="submit" className="search-button">

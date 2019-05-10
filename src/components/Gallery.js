@@ -7,8 +7,8 @@ import NoPics from "./NoPics";
 
 const Gallery = ({ pictures, query }) => {
 
-	console.log(pictures);
-
+	// console.log(props);
+	// let word = match.params.topic
 	let pics;
 	if(pictures.length > 0) {
 		pics = pictures.map( pic => (

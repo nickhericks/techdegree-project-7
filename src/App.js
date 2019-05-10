@@ -11,14 +11,14 @@ import apiKey from './config.js';
 
 import Header from './components/Header';
 import Gallery from './components/Gallery';
-import NoPics from './components/NoPics';
+import NotFound from './components/NotFound';
 
 
 
 class App extends Component {
   state = {
-		searchTerm: "",
     loading: true,
+		searchTerm: "",
 		results: [],
 		catResults: [],
 		dogResults: [],
@@ -33,7 +33,7 @@ class App extends Component {
 		this.performSearch('computers')
   }
 
-  performSearch = (query) => {
+  performSearch = (query = 'dogs') => {
   	fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
     )
@@ -81,8 +81,6 @@ class App extends Component {
 
 						<Route exact path="/" render={ () => <Redirect to="/dogs" />} /> 
 						
-						<Route path="/dogs" render={ () => <Gallery pictures={this.state/dogResults} query={this.state.searchTerm} />} /> 
-
 						<Route path="/:topic" render={ () => 
 							(this.state.loading) 
 							? <p>Loading...</p>
@@ -97,6 +95,9 @@ class App extends Component {
 
 					<Switch>
 
+						<Route exact path="/" render={ () =>
+							<Gallery pictures={this.state.dogResults} query='dogs' />
+						} />
 						<Route exact path="/dogs" render={ () =>
 							<Gallery pictures={this.state.dogResults} query='dogs' />
 						} />
@@ -106,8 +107,13 @@ class App extends Component {
 						<Route exact path="/computers" render={ () =>
 							<Gallery pictures={this.state.computerResults} query='computers' />
 						} />
+						<Route exact path="/search/:topic" render={ () =>
+							<Gallery pictures={this.state.results} query={this.state.searchTerm} />
+						} />
 
 
+
+						<Route component={NotFound} />
 					</Switch>
 
 {/* 
