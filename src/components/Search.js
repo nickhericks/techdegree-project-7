@@ -17,6 +17,8 @@ class Search extends Component {
 		let query = this.query.value;
 		this.props.newSearch(query);
 		e.currentTarget.reset();
+		// let path = `/search/${query}`;
+		// this.props.history.push(path);
 	};
 
 	render() {
@@ -28,7 +30,7 @@ class Search extends Component {
 					placeholder="Search" 
 					value={this.state.value} 
 					onChange={this.onSearchChange} 
-					ref={ (input) => this.query=input }
+					ref={ (input) => this.query = input }
 					required 
 				/>
 				<button type="submit" className="search-button">

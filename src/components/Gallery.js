@@ -5,7 +5,7 @@ import NoPics from "./NoPics";
 
 
 
-const Gallery = ({ pictures }) => {
+const Gallery = ({ pictures, query }) => {
 
 	console.log(pictures);
 
@@ -28,12 +28,8 @@ const Gallery = ({ pictures }) => {
 
   return (
     <div className="photo-container">
-      <h2>Gallery Results</h2>
-      <ul>
-
-				{pics}
-
-      </ul>
+      <h2>Image results for: "{query}"</h2>
+      <ul>{pics}</ul>
     </div>
   );
 };
