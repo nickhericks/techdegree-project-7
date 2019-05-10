@@ -4,14 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
 
-	// state= {
-	// 	searchText: ''
-	// };
-
-	// onSearchChange = (e) => {
-	// 	this.setState({ searchText: e.target.value });
-	// };
-
 	handleSubmit = (e) => {
 		e.preventDefault();
 		let searchQuery = this.search.value;
