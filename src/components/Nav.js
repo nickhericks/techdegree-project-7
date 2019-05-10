@@ -8,13 +8,13 @@ const Nav = () => {
     <nav className="main-nav">
 			<ul>
 				<li>
-					<NavLink to="/cats">Cats</NavLink>
+					<NavLink to="/mountains">Mountains</NavLink>
 				</li>
 				<li>
 					<NavLink to="/dogs">Dogs</NavLink>
 				</li>
 				<li>
-					<NavLink to="/computers">Computers</NavLink>
+					<NavLink to="/sunset">Sunset</NavLink>
 				</li>
 			</ul>
     </nav>

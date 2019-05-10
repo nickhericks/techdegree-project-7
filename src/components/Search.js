@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-
+// Need to import withRouter to access history
+import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
 
-	state= {
-		searchText: ''
-	};
+	// state= {
+	// 	searchText: ''
+	// };
 
-	onSearchChange = (e) => {
-		this.setState({ searchText: e.target.value });
-	};
+	// onSearchChange = (e) => {
+	// 	this.setState({ searchText: e.target.value });
+	// };
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 		let searchQuery = this.search.value;
 		this.props.newSearch(searchQuery);
 		e.currentTarget.reset();
-		// let path = `search/${searchQuery}`;
-		// this.props.history.push(path);
+		let path = `/search/${searchQuery}`;
+		this.props.history.push(path);
 	};
 
 	render() {
@@ -28,10 +28,11 @@ class Search extends Component {
 					type="search" 
 					name="Search" 
 					placeholder="Search" 
-					value={this.state.value} 
-					onChange={this.onSearchChange} 
+					// value={this.state.value} 
+					// onChange={this.onSearchChange} 
 					ref={ (input) => this.search = input }
 					required 
+					autoFocus
 				/>
 				<button type="submit" className="search-button">
 					<svg
@@ -48,10 +49,7 @@ class Search extends Component {
 			</form>
 		);
 	}
-	
-
-
-
 };
 
-export default Search;
+// Use withRouter
+export default withRouter (Search);

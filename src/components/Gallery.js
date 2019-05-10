@@ -4,11 +4,8 @@ import Item from "./Item";
 import NoPics from "./NoPics";
 
 
-
 const Gallery = ({ pictures, query }) => {
 
-	// console.log(props);
-	// let word = match.params.topic
 	let pics;
 	if(pictures.length > 0) {
 		pics = pictures.map( pic => (
@@ -23,12 +20,18 @@ const Gallery = ({ pictures, query }) => {
 		));
 	} else {
 		pics = <NoPics />
-	}
+	};
 
+	let searchWord;
+	if(query.length > 0) {
+		searchWord = `Image results for: "${query}"`
+	} else {
+		searchWord = '';
+	};
 
   return (
     <div className="photo-container">
-      <h2>Image results for: "{query}"</h2>
+      <h2>{searchWord}</h2>
       <ul>{pics}</ul>
     </div>
   );

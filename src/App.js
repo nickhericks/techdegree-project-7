@@ -5,14 +5,11 @@ import {
 	Switch,
 	Redirect
 } from 'react-router-dom';
-
 import './App.css';
 import apiKey from './config.js';
-
 import Header from './components/Header';
 import Gallery from './components/Gallery';
 import NotFound from './components/NotFound';
-
 
 
 class App extends Component {
@@ -20,42 +17,42 @@ class App extends Component {
     loading: true,
 		searchTerm: "",
 		results: [],
-		catResults: [],
+		mountainResults: [],
 		dogResults: [],
-		computerResults: []
+		sunsetResults: []
   };
 
 
-
   componentDidMount() {
+		this.performSearch('mountains')
 		this.performSearch('dogs')
-		this.performSearch('cats')
-		this.performSearch('computers')
+		this.performSearch('sunset')
   }
 
-  performSearch = (query = 'dogs') => {
+
+  performSearch = (query = 'mountains') => {
+		this.setState({
+			loading: true
+		});
   	fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
     )
       .then(response => response.json())
       .then(responseData => {
-				console.log(query);
-				if(query === 'dogs') {
+				// console.log(query);
+				if(query === 'mountains') {
+					this.setState({
+						mountainResults: responseData.photos.photo,
+						loading: false
+					});
+				} else if (query === 'dogs') {
 					this.setState({
 						dogResults: responseData.photos.photo,
-						searchTerm: query,
 						loading: false
 					});
-				} else if (query === 'cats') {
-							this.setState({
-						catResults: responseData.photos.photo,
-						searchTerm: query,
-						loading: false
-					});
-				} else if (query === 'computers') {
-							this.setState({
-						computerResults: responseData.photos.photo,
-						searchTerm: query,
+				} else if (query === 'sunset') {
+					this.setState({
+						sunsetResults: responseData.photos.photo,
 						loading: false
 					});
 				} else {
@@ -76,57 +73,41 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Header newSearch={this.performSearch} />
+					<Switch>
+						<Route exact path="/" render={ () =>
+							<Redirect to='/mountains' />
 
-					{/* <Switch>
 
-						<Route exact path="/" render={ () => <Redirect to="/dogs" />} /> 
-						
-						<Route path="/:topic" render={ () => 
+
+						} />
+						<Route exact path="/mountains" render={ () =>
 							(this.state.loading) 
 							? <p>Loading...</p>
-							: <Gallery
-									pictures={this.state.results}
-									query={this.state.searchTerm}
-								/>
-						} />
-
-						<Route component={NoPics} />
-					</Switch> */}
-
-					<Switch>
-
-						<Route exact path="/" render={ () =>
-							<Gallery pictures={this.state.dogResults} query='dogs' />
+							: <Gallery pictures={this.state.mountainResults} query='mountains' />
 						} />
 						<Route exact path="/dogs" render={ () =>
-							<Gallery pictures={this.state.dogResults} query='dogs' />
+							(this.state.loading) 
+							? <p>Loading...</p>
+							: <Gallery pictures={this.state.dogResults} query='dogs' />
 						} />
-						<Route exact path="/cats" render={ () =>
-							<Gallery pictures={this.state.catResults} query='cats' />
+						<Route exact path="/sunset" render={ () =>
+							(this.state.loading) 
+							? <p>Loading...</p>
+							: <Gallery pictures={this.state.sunsetResults} query='sunset' />
 						} />
-						<Route exact path="/computers" render={ () =>
-							<Gallery pictures={this.state.computerResults} query='computers' />
-						} />
-						<Route exact path="/search/:topic" render={ () =>
-							<Gallery pictures={this.state.results} query={this.state.searchTerm} />
+
+
+
+						<Route path="/search/:topic" render={ () =>
+							(this.state.loading) 
+							? <p>Loading...</p>
+							: <Gallery pictures={this.state.results} query={this.state.searchTerm} />
 						} />
 
 
 
 						<Route component={NotFound} />
 					</Switch>
-
-{/* 
-          {
-						(this.state.loading) 
-						? <p>Loading...</p>
-        		: <Gallery
-              	pictures={this.state.results}
-              	query={this.state.searchTerm}
-            	/>
-          } */}
-
-
         </div>
       </BrowserRouter>
     );
