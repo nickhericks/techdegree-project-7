@@ -35,7 +35,7 @@ class App extends Component {
 			loading: true
 		});
   	fetch(
-      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
+      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&sort=relevance&format=json&nojsoncallback=1`
     )
       .then(response => response.json())
       .then(responseData => {
