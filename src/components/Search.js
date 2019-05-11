@@ -2,14 +2,22 @@ import React, { Component } from "react";
 // Need to import withRouter to access history
 import { withRouter } from 'react-router-dom';
 
-class Search extends Component {
 
+class Search extends Component {
+	
+	// When form is submitted
 	handleSubmit = (e) => {
+		// Prevent default form submission
 		e.preventDefault();
 		let searchQuery = this.search.value;
+		// Pass search query to performSearch function in App.js
 		this.props.newSearch(searchQuery);
+		// Reset input field value
 		e.currentTarget.reset();
+
 		let path = `/search/${searchQuery}`;
+		// Push new entry onto history stack (list of previously visited URLs)
+		// which allows us to programmatically change the URL
 		this.props.history.push(path);
 	};
 

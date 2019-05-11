@@ -1,10 +1,10 @@
 import React from "react";
 
+// Component for 404 errors
 const NotFound = () => {
   return (
     <li className="not-found">
       <h3>The page your requested does not exist</h3>
-      {/* <p>Your search did not return any results. Please try again.</p> */}
     </li>
   );
 };

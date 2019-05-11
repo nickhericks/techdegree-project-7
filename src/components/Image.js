@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Item = ({ farm, server, id, secret, title }) => {
+const Image = ({ farm, server, id, secret, title }) => {
 	return (
 		<li>
 			<img 
@@ -11,4 +11,4 @@ const Item = ({ farm, server, id, secret, title }) => {
 	)
 };
 
-export default Item;
+export default Image;

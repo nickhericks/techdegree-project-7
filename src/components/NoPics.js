@@ -1,5 +1,6 @@
 import React from "react";
 
+// Component for no images returned from API request
 const NoPics = () => {
   return (
     <li className="not-found">

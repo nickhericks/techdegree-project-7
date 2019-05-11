@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Import components
 import Search from './Search';
 import Nav from './Nav';
 

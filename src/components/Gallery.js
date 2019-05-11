@@ -1,16 +1,17 @@
 import React from "react";
 
 // Import components
-import Item from "./Item";
+import Image from "./Image";
 import NoPics from "./NoPics";
 
 
 const Gallery = ({ pictures, query }) => {
 
 	let pics;
+	// If array is not empty, iterate over it
 	if(pictures.length > 0) {
 		pics = pictures.map( pic => (
-			<Item 
+			<Image 
 				farm={pic.farm}
 				server={pic.server}
 				id={pic.id}
@@ -20,20 +21,28 @@ const Gallery = ({ pictures, query }) => {
 			/>
 		));
 	} else {
+		// If array is empty, display NoPics component
 		pics = <NoPics />
 	};
 
 	let searchWord;
+	// If query string is not empty, display it
 	if(query.length > 0) {
 		searchWord = `Image results for: "${query}"`
 	} else {
+		// If query string is empty, do not show it
 		searchWord = '';
 	};
 
   return (
     <div className="photo-container">
+
+			{/* Render image results header */}
       <h2>{searchWord}</h2>
+
+			{/* Render images */}
       <ul>{pics}</ul>
+			
     </div>
   );
 };
