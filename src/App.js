@@ -31,7 +31,7 @@ class App extends Component {
 		this.performSearch('sunset')
   }
 
-
+	// Perform API request for photos and update state
   performSearch = (query = 'mountains') => {
 		this.setState({
 			loading: true
@@ -41,6 +41,7 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(responseData => {
+				// Update state based on query
 				if(query === 'mountains') {
 					this.setState({
 						mountainResults: responseData.photos.photo,
@@ -75,12 +76,11 @@ class App extends Component {
           <Header newSearch={this.performSearch} />
 
 					<Switch>
+						{/* Redirect root path to /mountains */}
 						<Route exact path="/" render={ () =>
 							<Redirect to='/mountains' />
-
-
-
 						} />
+
 						<Route exact path="/mountains" render={ () =>
 							(this.state.loading) 
 							? <p>Loading...</p>
@@ -97,8 +97,7 @@ class App extends Component {
 							: <Gallery pictures={this.state.sunsetResults} query='sunset' />
 						} />
 
-
-
+						{/* Route for search queries */}
 						<Route path="/search/:topic" render={ () =>
 							(this.state.loading) 
 							? <p>Loading...</p>
@@ -106,7 +105,7 @@ class App extends Component {
 						} />
 
 
-
+						{/* Route for 404 error */}
 						<Route component={NotFound} />
 					</Switch>
         </div>
