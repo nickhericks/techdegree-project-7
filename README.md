@@ -6,7 +6,7 @@ An image gallery app built using the React library.
 
 ---
 
-<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1555084799/portfolio/expressPortfolio.png" width="899px">
+<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1557551236/portfolio/react-gallery.png" width="899px">
 
 <!-- ## View project
 1. Download this repo.
