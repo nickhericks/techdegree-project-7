@@ -20,8 +20,6 @@ class Search extends Component {
 					type="search" 
 					name="Search" 
 					placeholder="Search" 
-					// value={this.state.value} 
-					// onChange={this.onSearchChange} 
 					ref={ (input) => this.search = input }
 					required 
 					autoFocus

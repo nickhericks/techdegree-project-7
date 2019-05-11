@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import apiKey from './config.js';
+
+// Import components
 import Header from './components/Header';
 import Gallery from './components/Gallery';
 import NotFound from './components/NotFound';
@@ -22,7 +24,7 @@ class App extends Component {
 		sunsetResults: []
   };
 
-
+	// Trigger API requests for tabbed topics after App component is mounted
   componentDidMount() {
 		this.performSearch('mountains')
 		this.performSearch('dogs')
@@ -39,7 +41,6 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(responseData => {
-				// console.log(query);
 				if(query === 'mountains') {
 					this.setState({
 						mountainResults: responseData.photos.photo,
@@ -68,11 +69,11 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.dogResults);
     return (
       <BrowserRouter>
         <div className="container">
           <Header newSearch={this.performSearch} />
+
 					<Switch>
 						<Route exact path="/" render={ () =>
 							<Redirect to='/mountains' />

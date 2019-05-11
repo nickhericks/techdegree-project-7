@@ -1,5 +1,6 @@
 import React from "react";
 
+// Import components
 import Item from "./Item";
 import NoPics from "./NoPics";
 
