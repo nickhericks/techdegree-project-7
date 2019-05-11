@@ -6,7 +6,7 @@ An image gallery app built using the React library.
 
 ---
 
-<!-- <img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1555084799/portfolio/expressPortfolio.png" width="899px"> -->
+<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1555084799/portfolio/expressPortfolio.png" width="899px">
 
 <!-- ## View project
 1. Download this repo.
@@ -32,41 +32,29 @@ In this project, JSX is used to write markup-like syntax directly in the JS file
 
 In addition to completing the basic requirements for this techdegree project, I also added additional features including:
 
-<!-- - [x] Updating package.json file to allow running 'npm start' to run the app
-- [x] Create custom error message Pug template -->
+- [x] Displaying a loading indicator each time the app fetches new data.
+- [x] Displaying a friendly user message when no matches are found by search
+- [x] Display a 404 error component when a URL does not match an existing route
 - [x] Personalized CSS stylings
 
 ## Code example
 
-<!-- This lesson was all about AJAX, so it seems fitting to show the fetch request used:
+From the Search.js component, this function is executed when the form (search box) is submitted.
 
 ```javascript
-// When a GET request is made that includes an id after /project
-router.get('/:id', (req, res) => {
-	// Access id from the route parameter and assign it a variable
-	const id = req.params.id;
-
-	// Create array of all project ids
-	const allIds = projects.map( project => project.id);
-
-	// Get index of id in allIds, otherwise return -1
-	const index = allIds.indexOf(parseInt(id));
-
-	// If index equals -1, project id does not exist
-	if(index === -1) {
-		// Redirect user to home page
-		res.redirect('/');
-	}
-	// When index does not equal -1, project id does exist
-	else {
-		// Use id as index to get specific project data and assign to variable
-		const project = projects[index];
-
-		// Render project.pug template passing 'project' object as data
-		res.render('project', project);
-	}
-});
-``` -->
+// When form is submitted
+handleSubmit = (e) => {
+	e.preventDefault();
+	let searchQuery = this.search.value;
+	// Pass search query to performSearch function in App.js
+	this.props.newSearch(searchQuery);
+	e.currentTarget.reset();
+	let path = `/search/${searchQuery}`;
+	// Push new entry onto history stack (list of previously visited URLs)
+	// which allows us to programmatically change the URL
+	this.props.history.push(path);
+};
+```
 
 ## Acknowledgements
 
@@ -74,6 +62,7 @@ This project was built as part of the [Full Stack JavaScript Techdegree](https:/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+---
 
 ## Available Scripts
 
