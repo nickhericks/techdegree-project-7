@@ -9,6 +9,9 @@ An image gallery app built using the React library.
 <img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1557551236/portfolio/react-gallery.png" width="899px">
 
 ## View project
+
+:mag: Live version available at [https://techdegree-project-7.netlify.com](https://techdegree-project-7.netlify.com)
+
 1. Download this repo.
 2. Navigate to the project directory in the command line/terminal.
 3. Run 'npm install' (or view the required dependencies listed in the package.json file and install each manually).
@@ -20,8 +23,6 @@ const apiKey = 'YOUR API KEY';
 export default apiKey;
 ```
 7. Run 'npm start' to view the project in your browser at:  localhost:3000
-
-:mag: Live version available at [https://techdegree-project-7.netlify.com](https://techdegree-project-7.netlify.com)
 
 ## Project objective
 
