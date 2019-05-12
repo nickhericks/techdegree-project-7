@@ -21,7 +21,7 @@ export default apiKey;
 ```
 7. Run 'npm start' to view the project in your browser at:  localhost:3000
 
-<!-- :mag: Live version available at [nickhericks.github.io/techdegree-project-6/](https://nickhericks.github.io/techdegree-project-6/) -->
+:mag: Live version available at [https://techdegree-project-7.netlify.com](https://techdegree-project-7.netlify.com)
 
 ## Project objective
 
