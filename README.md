@@ -12,7 +12,14 @@ An image gallery app built using the React library.
 1. Download this repo.
 2. Navigate to the project directory in the command line/terminal.
 3. Run 'npm install' (or view the required dependencies listed in the package.json file and install each manually).
-3. Run 'npm start' to view the project in your browser at:  localhost:3000
+4. Create an account with Flickr and apply for a non-commercial API key.
+5. Create a config.js file in the project's src folder.
+6. In the config file add:
+```javascript
+const apiKey = 'YOUR API KEY';
+export default apiKey;
+```
+7. Run 'npm start' to view the project in your browser at:  localhost:3000
 
 <!-- :mag: Live version available at [nickhericks.github.io/techdegree-project-6/](https://nickhericks.github.io/techdegree-project-6/) -->
 
