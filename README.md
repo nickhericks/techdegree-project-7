@@ -18,7 +18,7 @@ An image gallery app built using the React library.
 4. Create an account with Flickr and apply for a non-commercial API key.
 5. Create a config.js file in the project's src folder.
 6. In the config file add:
-```
+```javascript
 const apiKey = 'YOUR API KEY';
 export default apiKey;
 ```
