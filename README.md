@@ -6,11 +6,13 @@ An image gallery app built using the React library.
 
 ---
 
-<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1557551236/portfolio/react-gallery.png" width="899px">
 
 ## View project
-
 :mag: Live version available at [https://techdegree-project-7.netlify.com](https://techdegree-project-7.netlify.com)
+
+<br><br>
+
+<img src="https://res.cloudinary.com/dtqevfsxh/image/upload/v1557551236/portfolio/react-gallery.png" width="899px">
 
 1. Download this repo.
 2. Navigate to the project directory in the command line/terminal.
